@@ -1,7 +1,6 @@
 package com.example.projectbookstore.services;
 
 import com.example.projectbookstore.model.Book;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.projectbookstore.repositories.BookRepository;
@@ -11,8 +10,11 @@ import java.util.Optional;
 
 @Service
 public class BookService {
-    @Autowired
     private BookRepository bookRepository;
+
+    public BookService(BookRepository bookRepository) {
+        this.bookRepository = bookRepository;
+    }
 
     public Book save(Book book) {
         return bookRepository.save(book);

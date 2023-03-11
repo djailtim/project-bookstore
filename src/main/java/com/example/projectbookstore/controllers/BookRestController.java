@@ -2,20 +2,27 @@ package com.example.projectbookstore.controllers;
 
 import com.example.projectbookstore.model.Book;
 import com.example.projectbookstore.services.BookService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/books")
+@RequestMapping("/api/books")
 public class BookRestController {
-    @Autowired
+
     private BookService bookService;
+
+    public BookRestController(BookService bookService) {
+        this.bookService = bookService;
+    }
 
     @PostMapping("/create")
     public Book save(@RequestBody Book book) {
+        book.setTitle(book.getTitle().toLowerCase());
+        book.setAuthor(book.getAuthor().toLowerCase());
+        book.setCategory(book.getCategory().toLowerCase());
+        book.setType(book.getType().toLowerCase());
         return bookService.save(book);
     }
 

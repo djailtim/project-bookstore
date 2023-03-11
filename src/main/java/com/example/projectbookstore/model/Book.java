@@ -17,6 +17,28 @@ public class Book {
     private Integer yearPublication;
     private String type;
 
+    public Book() {
+    }
+
+    public Book(String title, String author, String category, Integer pages, Integer yearPublication, String type) {
+        this.title = title;
+        this.author = author;
+        this.category = category;
+        this.pages = pages;
+        this.yearPublication = yearPublication;
+        this.type = type;
+    }
+
+    public Book(Long id, String title, String author, String category, Integer pages, Integer yearPublication, String type) {
+        this.id = id;
+        this.title = title;
+        this.author = author;
+        this.category = category;
+        this.pages = pages;
+        this.yearPublication = yearPublication;
+        this.type = type;
+    }
+
     public Long getId() {
         return id;
     }
