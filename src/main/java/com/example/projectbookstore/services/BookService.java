@@ -17,6 +17,10 @@ public class BookService {
     }
 
     public Book save(Book book) {
+        book.setTitle(book.getTitle().toLowerCase());
+        book.setAuthor(book.getAuthor().toLowerCase());
+        book.setCategory(book.getCategory().toLowerCase());
+        book.setType(book.getType().toLowerCase());
         return bookRepository.save(book);
     }
 

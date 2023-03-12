@@ -19,10 +19,6 @@ public class BookRestController {
 
     @PostMapping("/create")
     public Book save(@RequestBody Book book) {
-        book.setTitle(book.getTitle().toLowerCase());
-        book.setAuthor(book.getAuthor().toLowerCase());
-        book.setCategory(book.getCategory().toLowerCase());
-        book.setType(book.getType().toLowerCase());
         return bookService.save(book);
     }
 
